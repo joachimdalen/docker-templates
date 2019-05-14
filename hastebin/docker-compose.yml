@@ -2,7 +2,7 @@ version: "3"
 services:
   hastebin:
     container_name: hastebin
-    build: .
+    image: joachimdalen/hastebin
     environment:
       HOST: 0.0.0.0
       PORT: 7777
