@@ -1,15 +1,30 @@
 version: "3"
 services:
   hastebin:
-    image: rlister/hastebin
+    container_name: hastebin
+    build: .
     environment:
+      HOST: 0.0.0.0
+      PORT: 7777
+      KEY_LENGTH: 10
+      MAX_LENGTH: 400000
+      STATIC_MAX_AGE: 86400
+      RECOMPRESS_STATIC_ASSETS: "true"
+      LOGGING_LEVEL: verbose
+      LOGGING_TYPE: Console
+      LOGGING_COLORIZE: "false"
+      KEY_GENERATOR_TYPE: phonetic
       STORAGE_TYPE: redis
+      STORAGE_PATH: ./data
       STORAGE_HOST: hastebinredis
+      STORAGE_DB: 2
+      STORAGE_EXPIRES: 2592000
     ports:
-     - "7777:7777"
+      - "7777:7777"
   hastebinredis:
+    container_name: hastebinredis
     image: redis
     volumes:
       - hastebin_data:/data
 volumes:
-  - hastebin_data:
+  hastebin_data:
