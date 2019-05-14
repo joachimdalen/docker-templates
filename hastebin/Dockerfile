@@ -15,6 +15,5 @@ RUN chmod 755 app.sh
 
 EXPOSE 7777
 
-ENV STORAGE_TYPE file
 
 CMD [ "./app.sh" ]

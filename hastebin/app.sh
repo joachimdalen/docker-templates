@@ -20,7 +20,7 @@ cat > config.js <<EOF
     "type": "${KEY_GENERATOR_TYPE:-phonetic}"
   },
   "storage": {
-    "type": "${STORAGE_TYPE:-redis}",
+    "type": "${STORAGE_TYPE:-file}",
     "path": "${STORAGE_PATH:-./data}",
     "host": "${STORAGE_HOST:-0.0.0.0}",
     "port": ${STORAGE_PORT:-6379},
